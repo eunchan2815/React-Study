@@ -1,81 +1,118 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const MainContainer = styled.div`
+  position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 80px 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 40px;
   box-sizing: border-box;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 80px 0.5rem 1rem;
+  }
 `;
 
-export const Background = styled.div`
+export const Background = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 480px;
-  background-color: aquamarine;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  padding-top: 30px;
+`;
+
+export const ContentWrapper = styled.div`
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 2000px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
-  border-radius: 12px;
-
-  @media (max-width: 480px) {
-    padding: 0.75rem;
+  align-items: start;
+  gap: 40px;
+  padding-left: 5%;
+  
+  @media (max-width: 768px) {
+    gap: 20px;
     max-width: 100%;
   }
 `;
 
-export const Button = styled.div`
-  width: 100%;
-  max-width: 320px;
-  height: 40px;
-  background-color: #007aff;
-  border-radius: 30px;
+export const Title = styled.div`
+  font-weight: 700;
+  font-size: clamp(20px, 8vw, 100px); // 반응형 vw도 됨
   color: white;
+  text-align: left;
+`;
+
+export const ButtonGroup = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 20px;
+`;
+
+export const PrimaryButton = styled.button`
+  background-color: #ffd900;
+  color: #001b50;
   font-weight: bold;
+  font-size: 18px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
 
   &:hover {
-    background-color: #005bb5;
+    opacity: 0.9;
   }
 `;
 
-export const Textfield = styled.input`
-  width: 100%;
-  max-width: 320px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  outline: none;
-  transition: border 0.2s ease;
-
-  &::placeholder {
-    color: #aaa;
-  }
-
-  &:focus {
-    border-color: #007aff;
-    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
-  }
-`;
-
-export const Title = styled.div`
-  width: 100%;
-  max-width: 480px;
-  font-size: 1.5rem;
+export const SecondaryButton = styled.button`
+  background-color: transparent;
+  color: #ffd900;
   font-weight: bold;
-  color: #333;
+  font-size: 18px;
+  padding: 1rem 2rem;
+  border: 2px solid #ffd900;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 217, 0, 0.1);
+  }
+`;
+
+export const BannerContainer = styled.div`
+  width: 100%;
+  padding: 20px 1rem;
+  display: flex;
+  justify-content: center;
+`;
+
+export const UniformBanner = styled.img`
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding: 2% 1%;
+`;
+
+export const ArticleContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  padding: 20px 1rem;
 `;
+
+export const ArticleTitle = styled.div`
+  font-weight: 600;
+  font-size: clamp(10px, 8vw, 30px);
+  display: block;
+  padding: 2% 2%;
+`
