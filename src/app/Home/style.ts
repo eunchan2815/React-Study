@@ -108,11 +108,40 @@ export const ArticleContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 20px 1rem;
+  flex-direction: column;
 `;
 
 export const ArticleTitle = styled.div`
   font-weight: 600;
   font-size: clamp(10px, 8vw, 30px);
   display: block;
-  padding: 2% 2%;
+  padding: 2% 8%;
+`
+
+export const NewscardContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 3rem;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+`
+
+export const BigNewscardContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: row;
+  padding: 20px 3rem;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+`
+
+export const Hstack = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 3rem;
 `
