@@ -1,4 +1,4 @@
-export default interface NewsCardProps {
+export interface NewsCardProps {
   tag: string;
   title: string;
   dateAgo: string;

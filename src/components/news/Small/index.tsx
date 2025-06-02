@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import type NewsCardProps from "../../../types/NewsCardProps";
+import type { NewsCardProps } from "../../../types/NewsCardProps";
 
 export const NewsCard: React.FC<NewsCardProps> = ({ tag, title, dateAgo, imageUrl }) => {
   return (

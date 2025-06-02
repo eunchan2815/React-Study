@@ -1,5 +1,7 @@
+import { useRef } from 'react';
 import { BigNewsCard } from "../../components/news/Big";
 import { NewsCard } from "../../components/news/Small";
+import { ShoppingCard } from "../../components/shopping";
 import { VideoCard } from "../../components/video";
 import * as S from "./style";
 
@@ -31,6 +33,17 @@ export const Home = () => {
     },
   ];
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const arr = Array.from({ length: 8 }, (_, i) => i + 1);
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
+  };
+
   return (
     <>
       <S.MainContainer>
@@ -51,7 +64,6 @@ export const Home = () => {
           <S.UniformBanner src="/uniform.jpg" alt="Tottenham Hotspur uniform banner" />
         </a>
       </S.BannerContainer>
-
 
       <S.ArticleContainer>
         <S.ArticleTitle>인기 기사</S.ArticleTitle>
@@ -116,6 +128,46 @@ export const Home = () => {
         </S.BigNewscardContainer>
       </S.ArticleContainer>
 
+      <S.ArticleContainer>
+        <S.ArticleTitle>UEL Winners Range</S.ArticleTitle>
+
+        <S.Container>
+          <S.LeftBtn onClick={scrollLeft}></S.LeftBtn>
+          <S.RightBtn onClick={scrollRight}></S.RightBtn>
+
+          <S.ShoppingCard ref={scrollRef}>
+            {arr.map(i => (
+              <ShoppingCard
+                key={i}
+                imageUrl={`/Shopitem${i}.jpg`}
+              />
+            ))}
+          </S.ShoppingCard>
+        </S.Container>
+      </S.ArticleContainer>
+      
+      <S.MembershipContainer>
+        <S.HStack>
+          <S.Mikey src="/Mikey.jpg" />
+          <S.VStack>
+            <S.MembershipTitle>그 특별한 순간을 함께하세요</S.MembershipTitle>
+            <S.MembershipDescription>
+              <p><strong>2024/25 시즌 원 핫스퍼 멤버십</strong>은 더 이상 판매되지 않습니다.</p>
+              <p>멤버들에게는 다양한 혜택이 제공됩니다:</p>
+              <S.MembershipList>
+                <li>경기 티켓 <b>우선 구매 권한</b></li>
+                <li>티켓 리세일 플랫폼 <b>‘티켓 익스체인지’</b> 이용 가능</li>
+                <li>매장 및 방문객 체험 <b>할인 바우처 제공</b></li>
+                <li><b>One Hotspur Moments</b> 리워드 및 특별 체험 프로그램</li>
+                <li>클럽 할인 및 다양한 혜택 제공</li>
+                <li>제휴사 혜택 이용 가능</li>
+              </S.MembershipList>
+              <p><strong>2025/26 시즌 원 핫스퍼 멤버십</strong>에 관심 있으신가요? 지금 바로 등록해 주세요.</p>
+              <S.CTAButton>가입하기</S.CTAButton>
+            </S.MembershipDescription>
+          </S.VStack>
+        </S.HStack>
+      </S.MembershipContainer>
     </>
   );
 };

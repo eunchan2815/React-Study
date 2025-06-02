@@ -1,4 +1,4 @@
-export default interface VideoCardProps {
+export interface VideoCardProps {
   thumbnailUrl: string;
   videoUrl: string;
   title: string;
